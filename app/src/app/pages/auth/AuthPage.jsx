@@ -2,18 +2,24 @@ import Signin from "../../components/auth/Signin";
 import Signup from "../../components/auth/Signup";
 
 const AuthPage = () => {
+  return (
+    <div className="auth">
+      <h2>Signup</h2>
+      <Signup />
 
-    return ( 
-        <div>
-            <h2>Signup</h2>
-            <Signup />
+      <hr />
 
-            <hr />
+      <h2>Signin</h2>
+      <Signin />
+      <style>
+        {`
+            .auth {
+                text-align: center;
+            }
+        `}
+      </style>
+    </div>
+  );
+};
 
-            <h2>Signin</h2>
-            <Signin />
-        </div>
-     );
-}
- 
 export default AuthPage;

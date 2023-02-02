@@ -6,34 +6,56 @@ const MainNavbar = () => {
   const { user, signout } = useContext(UserContext);
 
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        {!user && (
-          <>
+    <div>
+      <div className="navbar">
+        <nav>
+          <ul>
             <li>
-              <Link to="/auth">Signin</Link>
+              <Link to="/">Home</Link>
             </li>
+            {!user && (
+              <>
+                <li>
+                  <Link to="/auth">Signin</Link>
+                </li>
+                <li>
+                  <Link to="/auth">Signup</Link>
+                </li>
+              </>
+            )}
+            {user && (
+              <>
+                <li>
+                  <Link to="/account">Account</Link>
+                </li>
+                <li>
+                  <Link to={`/users/${user._id}`}>Update</Link>
+                </li>
+                <Link onClick={signout}>Logout</Link>
+              </>
+            )}
             <li>
-              <Link to="/auth">Signup</Link>
+              <Link to="/shops">Shops</Link>
             </li>
-          </>
-        )}
-        {user && (
-          <>
-            <li>
-              <Link to="/account">account</Link>
-            </li>
-            <li>
-              <Link to={`/users/${user._id}`}>Update</Link>
-            </li>
-            <li onClick={signout}>Logout</li>
-          </>
-        )}
-      </ul>
-    </nav>
+          </ul>
+        </nav>
+      </div>
+
+      <style>
+        {`
+          .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            overflow: hidden;
+        }
+        `}
+      </style>
+    </div>
   );
 };
 

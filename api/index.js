@@ -5,6 +5,7 @@ const port = process.env.PORT || 8000
 const connect = require('./config/mongo.config')
 const AuthRouter = require('./src/routes/auth.router')
 const ShopRouter = require('./src/routes/shop.router')
+const UserRouter = require('./src/routes/user.router')
 connect()
 
 app.use(express.json())
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api', AuthRouter)
+app.use('/api', UserRouter)
 app.use('/api', ShopRouter)
 
 app.listen(port, () => {

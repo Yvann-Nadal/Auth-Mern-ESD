@@ -1,14 +1,14 @@
-import axios from 'axios';
+import instance from './api.service';
 
 const API_URL = `http://localhost:8000/api/users`;
 
 const getAll = async () => {
-    const response = await axios.get(API_URL);
+    const response = await instance.get(API_URL);
     return response.data;
 }
 
-const update = async (data) => {
-    const response = await axios.put(`${API_URL}/${data._id}`, data);
+const update = async (credentials, id) => {
+    const response = await instance.put(`${API_URL}/${id}`, credentials);
     return response.data;
 }
 

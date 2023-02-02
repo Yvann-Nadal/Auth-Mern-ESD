@@ -1,9 +1,16 @@
 const Account = () => {
-    return ( 
-        <div>
-            <h1>Account</h1>
-        </div> 
-    );
-}
- 
+  return (
+    <div className="title">
+      <h1>Account</h1>
+      <style>
+        {`
+            .title {
+                text-align: center;
+            }
+        `}
+      </style>
+    </div>
+  );
+};
+
 export default Account;
